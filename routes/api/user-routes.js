@@ -54,6 +54,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  console.log(req.body);
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   User.create({
     username: req.body.username,
@@ -117,6 +118,7 @@ router.delete('/:id', (req, res) => {
   User.destroy({
     where: {
       id: req.params.id
+      
     }
   })
     .then(dbUserData => {
