@@ -5,10 +5,4 @@ const homeRoutes = require('./home-routes.js');
 router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
 
-
-router.use((req, res) => {
-  console.log("needs parameters")
-  res.status(404).end();
-});
-
 module.exports = router;
