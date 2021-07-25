@@ -1,27 +1,6 @@
-async function loginFormHandler(event) {
-  event.preventDefault();
+//SIGN UP and LOGIN FUNCTIONS HERE
 
-  const email = document.querySelector('#email-login').value.trim();
-  const password = document.querySelector('#password-login').value.trim();
-
-  if (email && password) {
-    const response = await fetch('/api/users/login', {
-      method: 'post',
-      body: JSON.stringify({
-        email,
-        password
-      }),
-      headers: { 'Content-Type': 'application/json' }
-    });
-
-    if (response.ok) {
-      document.location.replace('/dashboard');
-    } else {
-      alert(response.statusText);
-    }
-  }
-}
-
+//SIGN UP
 async function signupFormHandler(event) {
   event.preventDefault();
 
@@ -40,14 +19,41 @@ async function signupFormHandler(event) {
       headers: { 'Content-Type': 'application/json' }
     });
 
+    //Checks the response status 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      console.log('Success!');
     } else {
       alert(response.statusText);
     }
   }
 }
 
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+document.querySelector("#signUp-btn").addEventListener('click', signupFormHandler);
 
-document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+//LOGIN 
+async function loginFormHandler(event) {
+  console.log("Button clicked");
+  event.preventDefault();
+
+  const email = document.querySelector('#email-login').value.trim();
+  const password = document.querySelector('#password-login').value.trim();
+
+  if (email && password) {
+    const response = await fetch('/api/users/login', {
+      method: 'post',
+      body: JSON.stringify({
+        email,
+        password
+      }),
+      headers: { 'Content-Type': 'application/json' }
+    });
+
+    if (response.ok) {
+      document.location.replace('/');
+    } else {
+      alert(response.statusText);
+    }
+  }
+}
+
+document.querySelector('#login-btn').addEventListener('click', loginFormHandler);
