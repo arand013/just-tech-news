@@ -3,7 +3,6 @@ const { User, Post, Comment, Vote } = require('../../models');
 
 // get all users
 router.get('/', (req, res) => {
-  console.log(req.session);
   User.findAll({
     attributes: { exclude: ['password'] }
   })
@@ -110,7 +109,8 @@ router.post('/logout', (req, res) => {
     req.session.destroy(() => {
       res.status(204).end();
     });
-  } else {
+  }
+  else {
     res.status(404).end();
   }
 });

@@ -86,10 +86,9 @@ header h1 {
   font-size: 1em;
 }
 
-main, .site-name {
+main {
   flex: 1;
   padding: 2% 4%;
-  background-color: #cfcfcf;
 }
 
 .btn-no-style {
