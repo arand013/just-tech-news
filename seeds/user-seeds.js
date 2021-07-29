@@ -9,9 +9,9 @@ const userdata = [
   },
 
   {
-    username: 'jwilloughway1',
-    email: 'rmebes1@sogou.com',
-    password: 'password123'
+    username: 'theWizard',
+    email: 'theWizard@secure.com',
+    password: 'cryptic963'
   },
   {
     username: 'iboddam2',
